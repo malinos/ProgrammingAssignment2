@@ -13,7 +13,6 @@ makeCacheMatrix <- function(x = matrix()) {
         #a local variable m and not updating the m that is
         #in the parent environment, and it would subsequently
         #never be cached
-        m <<- mean(data, ...)
         set <- function(y) {
                 x <<- y
                 m <<- NULL
