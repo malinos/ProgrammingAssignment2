@@ -1,9 +1,19 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Matrix inversion is usually a costly computation 
+## and there may be some benefit to caching the inverse of a matrix 
+## rather than compute it repeatedly. 
+## This is the ProgrammingAssignment2 with the pair of function: 
+## 1.makeCacheMatrix: creates a special "matrix" object that can cache its inverse.
+## 2.cacheSolve: computes the inverse of the special "matrix" returned 
+##   by makeCacheMatrix 
 
-## Write a short comment describing this function
+## Creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
+        #If the <<- were <- then we would be creating
+        #a local variable m and not updating the m that is
+        #in the parent environment, and it would subsequently
+        #never be cached
+        m <<- mean(data, ...)
         set <- function(y) {
                 x <<- y
                 m <<- NULL
@@ -15,7 +25,9 @@ makeCacheMatrix <- function(x = matrix()) {
              setsolve = setsolve,
              getsolve = getsolve)
 }
-## Write a short comment describing this function
+
+## 2.cacheSolve: computes the inverse of the special "matrix" returned 
+##   by makeCacheMatrix 
 cacheSolve <- function(x, ...) {
         m <- x$getsolve()
         if(!is.null(m)) {
